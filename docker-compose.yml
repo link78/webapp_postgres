@@ -1,0 +1,21 @@
+version: "3"
+
+
+services:
+  
+  web_db:
+    image: postgres:13-alpine 
+    container_name: web_db 
+    environment:
+      - POSTGRES_DATABASE=webdb
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=78152587kA
+    ports:
+      - 5432:5432
+    tty: true
+    volumes:
+      - postgres_web:/data/db 
+    restart: on-failure
+
+volumes:
+  postgres_web:
